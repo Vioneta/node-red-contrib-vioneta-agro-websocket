@@ -138,8 +138,8 @@ const buildForm = lazypipe()
         wrap(
             uiFormWrap,
             { type: nodeMap[currentFilename].type },
-            { variable: 'data' }
-        )
+            { variable: 'data' },
+        ),
     );
 
 const buildEditor = lazypipe()
@@ -151,8 +151,8 @@ const buildEditor = lazypipe()
         wrap(
             uiFormWrap,
             { type: editorMap[currentFilename] },
-            { variable: 'data' }
-        )
+            { variable: 'data' },
+        ),
     );
 
 const buildSidebar = lazypipe()
@@ -168,7 +168,7 @@ const buildSidebarToolbar = lazypipe()
         minifyCSS: true,
     })
     .pipe(() =>
-        wrap(uiFormWrap, { type: 'ha_sidebar_toolbar' }, { variable: 'data' })
+        wrap(uiFormWrap, { type: 'ha_sidebar_toolbar' }, { variable: 'data' }),
     );
 
 const buildHandlebars = lazypipe()
@@ -180,8 +180,8 @@ const buildHandlebars = lazypipe()
         wrap(
             uiHandlebarsWrap,
             { id: currentFilename, type: 'x-tmpl-handlebars' },
-            { variable: 'data' }
-        )
+            { variable: 'data' },
+        ),
     );
 
 // Covert markdown documentation to html and modify it to look more like Node-RED
@@ -218,7 +218,7 @@ const buildHelp = lazypipe()
                             return `<div class="home-assistant-custom-block ${
                                 m[1]
                             }">\n<p class="custom-block-title">${md.utils.escapeHtml(
-                                m[2] || title
+                                m[2] || title,
                             )}</p>\n`;
                         } else {
                             // closing tag
@@ -267,7 +267,7 @@ const buildHelp = lazypipe()
 
         // increase header element by one to conform to Node-RED titles being <h3></h3>
         $('h2,h3,h4,h5').each(
-            (i, item) => (item.tagName = `h${Number(item.tagName[1]) + 1}`)
+            (i, item) => (item.tagName = `h${Number(item.tagName[1]) + 1}`),
         );
 
         // Change relative links to the full address of docs
@@ -318,8 +318,8 @@ const buildHelp = lazypipe()
         wrap(
             uiHelpWrap,
             { type: nodeMap[currentFilename].type },
-            { variable: 'data' }
-        )
+            { variable: 'data' },
+        ),
     );
 
 task('buildEditorFiles', (done) => {
@@ -357,7 +357,7 @@ task('buildEditorFiles', (done) => {
 
             currentFilename = filename;
             return stream.pipe(buildEditor());
-        })
+        }),
     );
 
     const sidebarHtml = src(['src/editor/sidebar/index.html']).pipe(
@@ -366,7 +366,7 @@ task('buildEditorFiles', (done) => {
 
             currentFilename = filename;
             return stream.pipe(buildSidebar());
-        })
+        }),
     );
 
     const sidebarToolbarHtml = src(['src/editor/sidebar/toolbar.html']).pipe(
@@ -375,7 +375,7 @@ task('buildEditorFiles', (done) => {
 
             currentFilename = filename;
             return stream.pipe(buildSidebarToolbar());
-        })
+        }),
     );
 
     const handlebarsTemplates = src(['src/**/*.handlebars']).pipe(
@@ -384,7 +384,7 @@ task('buildEditorFiles', (done) => {
 
             currentFilename = filename;
             return stream.pipe(buildHandlebars());
-        })
+        }),
     );
 
     const html = src([
@@ -397,20 +397,20 @@ task('buildEditorFiles', (done) => {
 
             if (ext === 'md') {
                 const key = Object.keys(nodeMap).find(
-                    (i) => nodeMap[i].doc === filename
+                    (i) => nodeMap[i].doc === filename,
                 );
                 currentFilename = key;
                 return stream.pipe(buildHelp());
             } else if (ext === 'html') {
                 const [, node] = file.path.match(
-                    /[\\/]src[\\/]nodes[\\/]([^\\/]+)[\\/]editor\.html/
+                    /[\\/]src[\\/]nodes[\\/]([^\\/]+)[\\/]editor\.html/,
                 );
                 currentFilename = node;
                 return stream.pipe(buildForm());
             }
 
             throw Error(`Expecting md or html extension: ${file.basename}`);
-        })
+        }),
     );
 
     return merge([
@@ -453,7 +453,7 @@ task(
         'buildEditorFiles',
         'buildSourceFiles',
         series(['copyAssetFiles', 'buildLocalLocales']),
-    ])
+    ]),
 );
 
 // Clean generated files
@@ -477,7 +477,7 @@ task('cleanEditorFiles', (done) => {
 
 task(
     'cleanAllFiles',
-    parallel(['cleanAssetFiles', 'cleanSourceFiles', 'cleanEditorFiles'])
+    parallel(['cleanAssetFiles', 'cleanSourceFiles', 'cleanEditorFiles']),
 );
 
 // nodemon and browser-sync code modified from
@@ -540,8 +540,8 @@ module.exports = {
                 series(
                     'cleanEditorFiles',
                     'buildEditorFiles',
-                    restartNodemonAndBrowserSync
-                )
+                    restartNodemonAndBrowserSync,
+                ),
             );
             // only server side files modified restart node-red only
             watch(
@@ -552,13 +552,13 @@ module.exports = {
                     '!src/nodes/**/editor/*',
                     '!src/editor.ts',
                 ],
-                series('cleanSourceFiles', 'buildSourceFiles', restartNodemon)
+                series('cleanSourceFiles', 'buildSourceFiles', restartNodemon),
             );
             watch(
                 'src/**/locale.json',
-                series('buildLocalLocales', restartNodemonAndBrowserSync)
+                series('buildLocalLocales', restartNodemonAndBrowserSync),
             );
             done();
-        }
+        },
     ),
 };
