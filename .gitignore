@@ -1,11 +1,11 @@
-# .vscode/
+.vscode/
 .env
 node_modules
 _scratchpad
-# .vscode/settings.js
+.vscode/settings.js
 _scratchpad_flows
 .DS_Store
-# ./package-lock.json
+./package-lock.json
 *.log
 coverage
 .nyc_output
