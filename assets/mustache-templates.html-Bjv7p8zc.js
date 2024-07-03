@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-4970f119","path":"/guide/mustache-templates.html","title":"Mustache Templates","lang":"en-US","frontmatter":{},"headers":[],"git":{"updatedTime":1720030723000,"contributors":[{"name":"Linux User","email":"nikhuge@gmail.com","commits":1}]},"filePathRelative":"guide/mustache-templates.md"}');export{e as data};
