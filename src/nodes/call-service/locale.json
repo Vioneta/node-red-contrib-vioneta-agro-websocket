@@ -1,0 +1,33 @@
+{
+  "api-call-service": {
+    "error": {
+      "invalid_entity_id": "Invalid entity ID format",
+      "invalid_json": "Invalid JSON: __json__",
+      "invalid_merge_context": "Invalid merge context: __context__"
+    },
+    "label": {
+      "alternate_tags": "Use alternate template tags for the data field",
+      "area": "Area",
+      "data": "Data",
+      "device": "Device",
+      "domain": "Domain",
+      "entity": "Entity",
+      "load_example_data": "Load example data",
+      "merge_context": "Merge context",
+      "name": "Name",
+      "queue": "Queue",
+      "queue_option": {
+        "queue_all": "all messages",
+        "queue_first": "first message only",
+        "queue_last": "last message only",
+        "queue_none": "don't queue messages"
+      },
+      "server": "Server",
+      "service": "Service",
+      "show_debug": "Show debug information"
+    },
+    "status": {
+      "service_called": "__domain__.__service__ called"
+    }
+  }
+}

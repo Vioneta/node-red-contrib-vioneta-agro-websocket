@@ -1,0 +1,45 @@
+{
+  // Use IntelliSense to learn about possible Node.js debug attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach Docker: node-red",
+      "type": "node",
+      "request": "attach",
+      "timeout": 20000,
+      "restart": true,
+      "address": "localhost",
+      "port": 9123,
+      "localRoot": "${workspaceFolder}",
+      "remoteRoot": "/data/node_modules/node-red-contrib-vioneta-agro-websocket",
+      "trace": false,
+      "skipFiles": ["<node_internals>/**/*.js"]
+    },
+
+    {
+      "name": "Attach Local: node-red",
+      "type": "node",
+      "request": "attach",
+      "timeout": 20000,
+      "restart": true,
+      "address": "localhost",
+      "port": 9123,
+      "trace": false,
+      "skipFiles": ["<node_internals>/**/*.js"]
+    },
+    {
+      "name": "Attach Local: test",
+      "type": "node",
+      "request": "attach",
+      "timeout": 20000,
+      "restart": true,
+      "address": "localhost",
+      "port": 9124,
+      "trace": false,
+
+      "skipFiles": ["<node_internals>/**/*.js"]
+    }
+  ]
+}

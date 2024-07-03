@@ -1,0 +1,18 @@
+{
+  "home-assistant": {
+    "error": {
+      "cannot_connect": "Cannot connect to Home Assistant server",
+      "connection_lost": "connection lost",
+      "hass_host_required": "Base URL not set in server config",
+      "integration_not_loaded": "Integration not loaded",
+      "invalid_auth": "Invalid access token for WebSocket",
+      "invalid_state": "Invalid state",
+      "no_connection": "No connection to Home Assistant",
+      "pattern_not_matched": "Pattern not matched",
+      "unknown_error": "Unknown error",
+      "unrecognized_error": "Unrecognized error: __error__",
+      "user_not_admin": "User required to have admin privileges in Home Assistant",
+      "ha_version_not_supported": "Home Assistant version __version__ is not supported, please upgrade to __min_version__ or higher"
+    }
+  }
+}

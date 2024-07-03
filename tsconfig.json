@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "lib": ["es2018"],
+    "module": "commonjs",
+    "target": "es2018",
+    "outDir": "./dist",
+
+    "allowJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "skipLibCheck": true
+  },
+  "include": ["./src/**/*.js", "./src/**/*.ts"],
+  "exclude": [
+    "./src/editor.ts",
+    "./src/editor/**/*",
+    "./src/nodes/**/editor/**/*",
+    "./src/nodes/**/editor.*",
+    "./src/types",
+    "./test"
+  ]
+}

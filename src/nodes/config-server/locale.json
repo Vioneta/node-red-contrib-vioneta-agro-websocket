@@ -1,0 +1,68 @@
+{
+  "config-server": {
+    "errors": {
+      "empty_base_url": "Home Assistant base URL needs to be set",
+      "invalid_base_url": "Invalid base URL for Home Assistant: [__url__]",
+      "invalid_protocol": "Home Assistant base URL needs to begin with http:// or https://",
+      "no_server_selected": "No server selected and deployed.",
+      "server_deploy": "Deploy a valid server config for autocomplete to show results."
+    },
+    "label": {
+      "accept_all_certs": "Accept Unauthorized SSL Certificates",
+      "access_token": "Access token",
+      "area_selector": "Area Selector",
+      "base_url": "Base URL",
+      "cache_autocomplete_results": "Cache autocomplete results",
+      "date_option": {
+        "hidden": "hidden",
+        "long": "long",
+        "numeric": "numeric",
+        "short": "short",
+        "two_digit": "2-digit"
+      },
+      "day": "Day",
+      "delay_connection_attempts": "Delay connection attempts",
+      "device_selector": "Device Selector",
+      "enable_global_context_store": "Enable global context store",
+      "enable_heartbeat": "Enable heartbeat",
+      "entity_selector": "Entity Selector",
+      "heartbeat_interval": "Heartbeat interval",
+      "hour_cycle": "Hour cycle",
+      "hour_cycle_option": {
+        "12_hour_format": "12-hour format",
+        "24_hour_format": "24-hour format",
+        "default": "default"
+      },
+      "id_selector": "ID Selector",
+      "month": "Month",
+      "name": "Name",
+      "seconds": "Seconds",
+      "selector_option": {
+        "friendly_name": "friendly name",
+        "id": "id"
+      },
+      "separator": "Separator",
+      "state_boolean_list": "State boolean",
+      "status_title": "Status date format",
+      "time_format": "Time format",
+      "time_format_option": {
+        "hour_min": "hours and minutes",
+        "hour_min_sec": "hours, minutes and seconds",
+        "hour_min_sec_ms": "hours, minutes, seconds and milliseconds"
+      },
+      "ui_settings": "UI Settings",
+      "using_add_on": "Using the Home Assistant Add-on",
+      "year": "Year"
+    },
+    "status": {
+      "connected": "connected",
+      "connecting": "connecting",
+      "disabled": "DISABLED",
+      "disconnected": "disconnected",
+      "error": "error",
+      "registered": "registered",
+      "running": "running",
+      "triggered": "triggered"
+    }
+  }
+}

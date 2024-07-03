@@ -1,0 +1,18 @@
+{
+  "ha-text": {
+    "error": {
+      "mode_not_supported": "Mode not supported"
+    },
+    "label": {
+      "entity_config": "Entity config",
+      "mode": "Mode",
+      "mode_option": {
+        "get": "get value",
+        "listen": "listen for changes",
+        "set": "set value"
+      },
+      "name": "Name",
+      "text": "Text"
+    }
+  }
+}

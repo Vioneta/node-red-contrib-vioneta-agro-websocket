@@ -1,0 +1,14 @@
+{
+  "ha-webhook": {
+    "label": {
+      "allowed_methods": "Allowed Methods",
+      "get": "GET",
+      "head": "HEAD",
+      "id": "ID",
+      "name": "Name",
+      "post": "POST",
+      "put": "PUT",
+      "server": "Server"
+    }
+  }
+}

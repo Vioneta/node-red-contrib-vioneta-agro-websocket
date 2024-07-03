@@ -1,0 +1,37 @@
+{
+  "api-get-history": {
+    "error": {
+      "invalid_relative_time": "Invalid relative time",
+      "no_entity_ids_matched": "No entity IDs matched"
+    },
+    "label": {
+      "date_format": "dates must be in ISO format",
+      "end_date": "End date",
+      "entity_id": "Entity ID",
+      "entity_id_option": {
+        "regex": "regex",
+        "equal": "=="
+      },
+      "example": "example",
+      "flatten_results": "Flatten results",
+      "in_the_last": "In the last",
+      "name": "Name",
+      "output_location": "Output location",
+      "output_type": "Output type",
+      "output_type_option": {
+        "array": "array",
+        "split": "split"
+      },
+      "server": "Server",
+      "start_date": "Start date",
+      "use_relative_time": "Use relative time"
+    },
+    "placeholder": {
+      "relative_time": "20 minutes"
+    },
+    "status": {
+      "no_results": "no results",
+      "requesting": "requesting"
+    }
+  }
+}

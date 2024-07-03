@@ -1,0 +1,68 @@
+<input type="hidden" id="node-input-version" />
+<input type="hidden" id="node-input-outputs" />
+
+<div class="form-row">
+    <label for="node-input-name" data-i18n="ha-webhook.label.name"></label>
+    <input type="text" id="node-input-name" />
+</div>
+
+<div class="form-row">
+    <label for="node-input-server" data-i18n="ha-webhook.label.server"></label>
+    <input type="text" id="node-input-server" />
+</div>
+
+<div class="form-row">
+    <label for="node-input-webhookId" data-i18n="ha-webhook.label.id"></label
+    >&nbsp;
+    <div style="display: inline-flex; width: 70%">
+        <input type="text" id="node-input-webhookId" style="flex-grow: 1" />
+        <a id="copyId" class="editor-button" style="margin-left: 10px">
+            <i class="fa fa-copy"></i>
+        </a>
+        <a id="refresh" class="editor-button" style="margin-left: 10px">
+            <i class="fa fa-refresh"></i>
+        </a>
+    </div>
+</div>
+
+<div class="form-row">
+    <p data-i18n="ha-webhook.label.allowed_methods"></p>
+    <ul class="ha-ignore-state">
+        <li>
+            <input type="checkbox" id="node-input-method_post" />
+            <label
+                for="node-input-method_post"
+                data-i18n="ha-webhook.label.post"
+            >
+            </label>
+        </li>
+        <li>
+            <input type="checkbox" id="node-input-method_put" />
+            <label for="node-input-method_put" data-i18n="ha-webhook.label.put">
+            </label>
+        </li>
+        <li>
+            <input type="checkbox" id="node-input-method_get" />
+            <label for="node-input-method_get" data-i18n="ha-webhook.label.get">
+            </label>
+        </li>
+        <li>
+            <input type="checkbox" id="node-input-method_head" />
+            <label
+                for="node-input-method_head"
+                data-i18n="ha-webhook.label.head"
+            >
+            </label>
+        </li>
+    </ul>
+</div>
+
+<div class="form-row"><ol id="custom-outputs"></ol></div>
+
+<div class="form-row" id="exposed-as-row">
+    <label
+        for="node-input-exposeAsEntityConfig"
+        data-i18n="ha-tag.label.expose_as"
+    ></label>
+    <input type="text" id="node-input-exposeAsEntityConfig" />
+</div>

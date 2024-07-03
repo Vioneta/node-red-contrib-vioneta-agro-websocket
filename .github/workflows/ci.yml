@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: main
+    paths:
+      - "docs/nodes/**"
+      - "examples/**"
+      - "src/**"
+      - "ui/**"
+      - "test/**"
+      - ".npmignore"
+      - "package*.json"
+
+concurrency:
+  group: ci-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version:
+          - 16
+          - 18
+          - 20
+        node-red-version:
+          - "^3"
+          - "3.1.1"
+
+    name: Tests (Node ${{ matrix.node-version }} - node-red ${{ matrix.node-red-version }})
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - name: npm install
+        run: npm ci
+      - name: Install exact version of node-red
+        run: npm install --save-dev node-red@${{ matrix.node-red-version }}
+      - name: npm lint
+        run: npm run lint
+      - name: npm test
+        run: npm test
+        env:
+          CI: true
+
+  release-please:
+    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: GoogleCloudPlatform/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      release_version: ${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }}.${{ steps.release.outputs.patch }}
+      release_tag: ${{ steps.release.outputs.tag_name }}
+
+  upload-assets:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          cache: npm
+      - name: npm install
+        run: npm ci
+      - name: build
+        run: npm run build
+      - name: Pack
+        run: npm pack
+      - name: Upload Release Asset
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release upload ${{ needs.release-please.outputs.release_tag }} ./node-red-contrib-vioneta-agro-websocket-${{ needs.release-please.outputs.release_version }}.tgz
+
+  publish:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created }}
+    uses: Vioneta/node-red-contrib-vioneta-agro-websocket/.github/workflows/publish.yml@main
+    secrets: inherit

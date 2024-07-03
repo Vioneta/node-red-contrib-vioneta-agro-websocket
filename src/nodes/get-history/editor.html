@@ -1,0 +1,106 @@
+<input type="hidden" id="node-input-version" />
+
+<div class="form-row">
+    <label for="node-input-name" data-i18n="api-get-history.label.name"></label>
+    <input type="text" id="node-input-name" />
+</div>
+
+<div class="form-row">
+    <label
+        for="node-input-server"
+        data-i18n="api-get-history.label.server"
+    ></label>
+    <input type="text" id="node-input-server" />
+</div>
+
+<!-- Comparator Selection -->
+<div class="form-row">
+    <label
+        for="node-input-entityId"
+        data-i18n="api-get-history.label.entity_id"
+    ></label>
+
+    <select type="text" id="node-input-entityIdType" style="width: 18%">
+        <option
+            value="equals"
+            data-i18n="api-get-history.label.entity_id_option.equal"
+        ></option>
+        <option
+            value="regex"
+            data-i18n="api-get-history.label.entity_id_option.regex"
+        ></option>
+    </select>
+
+    <input type="text" id="node-input-entityId" style="width: 52%" />
+</div>
+
+<div class="form-row checkbox-option">
+    <input type="checkbox" id="node-input-useRelativeTime" />
+    <label
+        for="node-input-useRelativeTime"
+        data-i18n="api-get-history.label.use_relative_time"
+    ></label>
+</div>
+
+<div class="form-row relative_row">
+    <label
+        for="node-input-relativeTime"
+        data-i18n="api-get-history.label.in_the_last"
+    ></label>
+    <input
+        type="text"
+        id="node-input-relativeTime"
+        data-i18n="[placeholder]api-get-history.placeholder.relative_time"
+        .
+    />
+</div>
+
+<div class="form-row date_row">
+    <label
+        for="node-input-startDate"
+        data-i18n="api-get-history.label.start_date"
+    ></label>
+    <input type="datetime-local" id="node-input-startDate" />
+</div>
+
+<div class="form-row date_row">
+    <label
+        for="node-input-endDate"
+        data-i18n="api-get-history.label.end_date"
+    ></label>
+    <input type="datetime-local" id="node-input-endDate" />
+</div>
+
+<div class="form-row checkbox-option">
+    <input type="checkbox" id="node-input-flatten" />
+    <label
+        for="node-input-flatten"
+        data-i18n="api-get-history.label.flatten_results"
+    ></label>
+</div>
+
+<div class="form-row">
+    <label
+        for="node-input-outputType"
+        data-i18n="api-get-history.label.output_type"
+    ></label>
+    <select id="node-input-outputType" style="width: 70%">
+        <option
+            value="array"
+            data-i18n="api-get-history.label.output_type_option.array"
+        ></option>
+        <option
+            value="split"
+            data-i18n="api-get-history.label.output_type_option.split"
+        ></option>
+    </select>
+</div>
+
+<div class="form-row output-option" id="output_location">
+    <label
+        for="node-input-outputLocation"
+        data-i18n="api-get-history.label.output_location"
+    ></label>
+    <input type="hidden" id="node-input-outputLocationType" />
+    <input type="text" id="node-input-outputLocation" style="width: 70%" />
+</div>

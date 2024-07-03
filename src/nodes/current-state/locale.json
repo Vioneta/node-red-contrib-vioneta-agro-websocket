@@ -1,0 +1,36 @@
+{
+  "api-current-state": {
+    "label": {
+      "block_input_overrides": "Block Input Overrides",
+      "entity_id": "Entity ID",
+      "for": "For",
+      "for_option": {
+        "days": "days",
+        "hours": "hours",
+        "milliseconds": "milliseconds",
+        "minutes": "minutes",
+        "seconds": "seconds"
+      },
+      "if_state": "If State",
+      "if_state_option": {
+        "does_not_include": "not in",
+        "greater_than": ">",
+        "greater_than_or_equal_to": ">=",
+        "includes": "in",
+        "is": "is",
+        "is_not": "is not",
+        "jsonata": "JSONata",
+        "less_than": "<",
+        "less_than_or_equal_to": "<="
+      },
+      "name": "Name",
+      "server": "Server",
+      "state_type": "State Type",
+      "state_type_option": {
+        "boolean": "boolean",
+        "number": "number",
+        "string": "string"
+      }
+    }
+  }
+}
